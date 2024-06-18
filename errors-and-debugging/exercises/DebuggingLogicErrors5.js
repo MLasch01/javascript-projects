@@ -32,5 +32,5 @@ if (launchReady && crewReady == true) {
    console.log('10, 9, 8, 7, 6, 5, 4, 3, 2, 1...');
    console.log('Liftoff!');
 } else {
-   console.log('Launch scrubbed.');
+   console.log('Launch Scrubbed.');
 }
