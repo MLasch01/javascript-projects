@@ -8,6 +8,19 @@ function checkFuel(level) {
   }
 }
 
+let safetyPurge = function (a){
+  if (checkFuel(a) === "green"){
+    return a -= 100001;
+    }
+    else if (checkFuel(a) === "yellow"){
+      return a - 50001;
+    }   
+    else {
+      return a;
+    }
+  };
+  console.log(safetyPurge);
+
 function holdStatus(arr){
   if (arr.length < 7) {
     return `Spaces available: ${7-arr.length}.`;
@@ -20,9 +33,30 @@ function holdStatus(arr){
 
 let fuelLevel = 200000;
 let cargoHold = ['meal kits', 'space suits', 'first-aid kit', 'satellite', 'gold', 'water', 'AE-35 unit'];
-
+let bag = [];
 console.log("Fuel level: " + checkFuel(fuelLevel));
 console.log("Hold status: " + holdStatus(cargoHold));
+
+let surplusCargo = function (arr) {
+    if (!arr.includes('meal kits', 'gold')) {
+      return arr;
+    } 
+    else {
+      bag.push('meal kits', 'gold');
+      arr.splice(0,1,'socks'), arr.splice(4,1,'paper');
+      return arr
+      }
+  };
+  console.log(surplusCargo(cargoHold));
+
+
+
+  let irs = function(fuelLevel, cargoHold){
+    let arr = surplusCargo(cargoHold)
+    return (`Raided ${safetyPurge(fuelLevel)} kg of fuel from the tanks, and stole ${bag[0]} and ${bag[1]} from the cargo hold.`);
+}
+  console.log(irs(fuelLevel, cargoHold));
+ 
 
 /* Steal some fuel from the shuttle:
  * /
@@ -53,5 +87,4 @@ console.log("Hold status: " + holdStatus(cargoHold));
 	
 //b). Call your anonymous fuel and cargo functions from within irs.
 
-//c). Use a template literal to return, "Raided _____ kg of fuel from the tanks, and stole ____ and ____ from the cargo hold."
-
+//c). Use a template literal to return, "Raided _____ kg of fuel from the tanks, and stole ____ and ____ from the cargo hold."*/
