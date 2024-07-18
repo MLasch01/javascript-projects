@@ -6,12 +6,11 @@
 
 // Code your divide function here:
 function divide (numer, denom) {
-    let num = (numer / denom)
-        return num;
-    // console.log(divide(8,4));
-    
     if (denom === 0) {
-        throw Error ("Attempted to divide by zero.")
+        throw Error ("You cannot divide by zero.")
     }
+    let num = (numer / denom)
     return num;
     }
+    //  console.log(divide(8,4));
+    //  console.log(divide(8,0));
