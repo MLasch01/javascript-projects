@@ -15,6 +15,10 @@ let tortoise = new Astronaut('Speedy', 120);
 let cat = new Astronaut(this.name, 4, 10);
 
 // console.log(tortoise.name, tortoise.age, tortoise.mass);
-console.log(tortoise, cat);
+// console.log(tortoise, cat);
 
 // What happens if we call Astronaut and pass in MORE than 3 arguments? TRY IT!
+cat.speed = 30;
+cat.color = 'grey';
+
+console.log(cat);
