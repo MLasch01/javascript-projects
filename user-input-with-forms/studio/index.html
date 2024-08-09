@@ -6,6 +6,7 @@
 		// TODO: create a handler
 		function setSearchEngine(){
 			let testNameInput = document.querySelector("[name=engine]:checked");
+			let form = document.querySelector("form");
 			let actionURL;
 			// if (engine === "google") {
 			// 	actionURL = "https://www.google.com/";
@@ -17,19 +18,23 @@
 			// 	actionURL = "https://www.ask.com/web";
 			// }
 			let actions = {
-			"google":"https://www.google.com/"
-			"duckDuckGo": "https://duckduckgo.com/"
-			"bing": "https://www.bing.com/search"
+			"google":"https://www.google.com/",
+			"duckDuckGo": "https://duckduckgo.com/",
+			"bing": "https://www.bing.com/search",
 			"ask": "https://www.ask.com/web"
 	
 		};
 		actionURL = actions[testNameInput.value];
+		form.setAttribute("action",actionURL);
 			console.log (setSearchEngine);
 		}
 
-    window.addEventListener("load", setSearchEngine){}
+    window.addEventListener("load", function(){
+		let form = document.querySelector("form");
+		form.addEventListener("submit", setSearchEngine);
+	})
 	
-
+	
 
 
 
@@ -38,7 +43,7 @@
 
 <body>
 
-	<form id="searchForm">
+	<form id="searchForm" action="">
     <!-- TODO: add form elements -->
 		<label>Test Name <input type="text" name="q"></label></br>
 		<label>Google<input type="radio"  name="engine" value="google"/></label>
